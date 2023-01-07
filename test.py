@@ -1,3 +1,7 @@
+"""
+    This file contains unit tests of the logic of the game.
+"""
+
 from logic import *
 import unittest
 board = [[2, 4, 4, 2],
