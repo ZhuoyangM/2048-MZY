@@ -75,7 +75,7 @@ def new_board():
     return board
 
 def compress(board):
-    '''Compress the game board. '''
+    '''Compress the game board to the left. '''
     for i in range(4):
         pos = 0
         for j in range(4):
@@ -88,7 +88,7 @@ def compress(board):
     return board
 
 def merge(board):
-    '''Merge all mergeable tiles and return a dictionary of those tiles.'''
+    '''Merge tiles to the left and return a dictionary of those tiles.'''
     merged_tiles = {}
     for i in range(4):
         for j in range(3):
@@ -130,14 +130,14 @@ def reverse(board):
     return board
         
 def moveLeft(board):
-    '''Move tiles to the left.'''
+    '''Move tiles to the left and return a dictionary of combined tiles and their frequencies.'''
     compress(board)
     merged_tiles = merge(board)
     return merged_tiles
 
 
 def moveRight(board):
-    '''Move tiles to the right.'''
+    '''Move tiles to the right and return a dictionary of combined tiles and their frequencies.'''
     reverse(board)
     compress(board)
     merged_tiles = merge(board)
@@ -145,7 +145,7 @@ def moveRight(board):
     return merged_tiles
 
 def moveUp(board):
-    '''Move tiles up.'''
+    '''Move tiles up and return a dictionary of combined tiles and their frequencies.'''
     transpose(board)
     compress(board)
     merged_tiles = merge(board)
@@ -154,7 +154,7 @@ def moveUp(board):
 
 
 def moveDown(board):
-    '''Move tiles down.'''
+    '''Move tiles down and return a dictionary of combined tiles and their frequencies.'''
     transpose(board)
     reverse(board)
     compress(board)
